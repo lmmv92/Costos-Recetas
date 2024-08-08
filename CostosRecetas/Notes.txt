@@ -1,3 +1,0 @@
-﻿- Calcular costos convirtiendo a la unidad de medida
-- Mantener pantalla encendida
-- En detalle de la receta, botones para cambiar cantidad de toda la receta
