@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CostosRecetas.RecetasPage"
+             xmlns:s="clr-namespace:CostosRecetas.Resources"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+             xmlns:m="clr-namespace:UraniumUI.Icons.MaterialIcons;assembly=UraniumUI.Icons.MaterialIcons"
+             xmlns:viewmodel="clr-namespace:CostosRecetas.ViewModels"
+             xmlns:model="clr-namespace:CostosRecetas.Models"
+             x:DataType="viewmodel:RecetasViewModel">
+    <AbsoluteLayout Margin="20">
+        <Grid RowDefinitions="Auto, *" RowSpacing="10" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+            <material:InputField Grid.Row="0">
+                <SearchBar Placeholder="{x:Static s:AppResources.SearchPlaceholderIngr}" Text="{Binding TextoBuscar}">
+                    <SearchBar.Behaviors>
+                        <toolkit:EventToCommandBehavior EventName="TextChanged" Command="{Binding BuscarRecetasCommand}" />
+                    </SearchBar.Behaviors>
+                </SearchBar>
+            </material:InputField>
+            <CollectionView Grid.Row="1" ItemsSource="{Binding Recetas}" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="1"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Receta">
+                        <SwipeView >
+                            <SwipeView.RightItems>
+                                <SwipeItems>
+                                    <SwipeItem Text="{x:Static s:AppResources.Delete}" BackgroundColor="Red" Command="{Binding EliminarRecetaCommand, Source={RelativeSource AncestorType={x:Type viewmodel:RecetasViewModel}}}" CommandParameter="{Binding .}" />
+                                </SwipeItems>
+                            </SwipeView.RightItems>
+                            <Border Padding="10" StrokeShape="RoundRectangle 10,10,10,10" Stroke="{AppThemeBinding Light={StaticResource Secondary}, Dark= {StaticResource PrimaryDark}}" >
+                                <FlyoutBase.ContextFlyout>
+                                    <MenuFlyout>
+                                        <MenuFlyoutItem Text="{x:Static s:AppResources.Delete}" Command="{Binding EliminarRecetaCommand, Source={RelativeSource AncestorType={x:Type viewmodel:RecetasViewModel}}}" CommandParameter="{Binding .}" />
+                                    </MenuFlyout>
+                                </FlyoutBase.ContextFlyout>
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding DetallesRecetaCommand, Source={RelativeSource AncestorType={x:Type viewmodel:RecetasViewModel}}}" CommandParameter="{Binding .}">
+                                    </TapGestureRecognizer>
+                                </Border.GestureRecognizers>
+                                <Label Text="{Binding Nombre}" />
+                            </Border>
+                        </SwipeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+        <Button StyleClass="FabButton, AddFab, Elevation3" Command="{Binding AgregarRecetaCommand}" IsVisible="{Binding AgregarBtnVisible}" />
+    </AbsoluteLayout>
+</ContentPage>

@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddIngr" xml:space="preserve">
+    <value>Add ingredient</value>
+  </data>
+  <data name="AddRecipe" xml:space="preserve">
+    <value>Add recipe</value>
+  </data>
+  <data name="AlertAccept" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="AlertCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="BakingPowder" xml:space="preserve">
+    <value>Baking powder</value>
+  </data>
+  <data name="BakingSoda" xml:space="preserve">
+    <value>Baking soda</value>
+  </data>
+  <data name="BtnSave" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Butter" xml:space="preserve">
+    <value>Butter</value>
+  </data>
+  <data name="CalcWarning" xml:space="preserve">
+    <value>For more accurate results, it is recommended that the recipe ingredients be measured in the same unit of measure or in units that can be directly converted (e.g., grams to milligrams or liters to milliliters). Avoid converting between different types of measurements, like grams to cups, which represent different properties such as mass and volume.</value>
+  </data>
+  <data name="Cocoa" xml:space="preserve">
+    <value>Cocoa powder</value>
+  </data>
+  <data name="CondensedMilk" xml:space="preserve">
+    <value>Condensed milk</value>
+  </data>
+  <data name="Cost" xml:space="preserve">
+    <value>Cost</value>
+  </data>
+  <data name="cup" xml:space="preserve">
+    <value>cup</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="EditIngr" xml:space="preserve">
+    <value>Edit ingredient</value>
+  </data>
+  <data name="EditRecipe" xml:space="preserve">
+    <value>Edit recipe</value>
+  </data>
+  <data name="Eggs" xml:space="preserve">
+    <value>Eggs</value>
+  </data>
+  <data name="EvaporatedMilk" xml:space="preserve">
+    <value>Evaporated milk</value>
+  </data>
+  <data name="Flour" xml:space="preserve">
+    <value>Flour</value>
+  </data>
+  <data name="g" xml:space="preserve">
+    <value>g</value>
+  </data>
+  <data name="IngrAdded" xml:space="preserve">
+    <value>Ingredient Added</value>
+  </data>
+  <data name="IngrDelete" xml:space="preserve">
+    <value>Delete the ingredient</value>
+  </data>
+  <data name="Ingredient" xml:space="preserve">
+    <value>Ingredient</value>
+  </data>
+  <data name="Ingredients" xml:space="preserve">
+    <value>Ingredients</value>
+  </data>
+  <data name="IngredientsRecipe" xml:space="preserve">
+    <value>Recipe ingredients</value>
+  </data>
+  <data name="IngrName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="IngrPrice" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="IngrQty" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="IngrSaveError" xml:space="preserve">
+    <value>An error occurred while saving the ingredient</value>
+  </data>
+  <data name="IngrUnit" xml:space="preserve">
+    <value>Unit of measurement</value>
+  </data>
+  <data name="IngrUpdtd" xml:space="preserve">
+    <value>Ingredient updated</value>
+  </data>
+  <data name="L" xml:space="preserve">
+    <value>L</value>
+  </data>
+  <data name="lb" xml:space="preserve">
+    <value>lb</value>
+  </data>
+  <data name="mg" xml:space="preserve">
+    <value>mg</value>
+  </data>
+  <data name="Milk" xml:space="preserve">
+    <value>Milk</value>
+  </data>
+  <data name="MissingData" xml:space="preserve">
+    <value>Missing data</value>
+  </data>
+  <data name="ml" xml:space="preserve">
+    <value>ml</value>
+  </data>
+  <data name="Oil" xml:space="preserve">
+    <value>Oil</value>
+  </data>
+  <data name="oz" xml:space="preserve">
+    <value>oz</value>
+  </data>
+  <data name="Preparation" xml:space="preserve">
+    <value>Preparation</value>
+  </data>
+  <data name="PreparationInstr" xml:space="preserve">
+    <value>Preparation instructions</value>
+  </data>
+  <data name="Recipe" xml:space="preserve">
+    <value>Recipe</value>
+  </data>
+  <data name="RecipeAdded" xml:space="preserve">
+    <value>Recipe added</value>
+  </data>
+  <data name="RecipeDelete" xml:space="preserve">
+    <value>Delete the recipe</value>
+  </data>
+  <data name="Recipes" xml:space="preserve">
+    <value>Recipes</value>
+  </data>
+  <data name="RecipeSaveError" xml:space="preserve">
+    <value>An error occurred while saving the recipe</value>
+  </data>
+  <data name="RecipeUpdtd" xml:space="preserve">
+    <value>Recipe updated</value>
+  </data>
+  <data name="RecpName" xml:space="preserve">
+    <value>Recipe name</value>
+  </data>
+  <data name="Salt" xml:space="preserve">
+    <value>Salt</value>
+  </data>
+  <data name="SearchPlaceholderIngr" xml:space="preserve">
+    <value>Search ingredient</value>
+  </data>
+  <data name="SearchPlaceholderRecipe" xml:space="preserve">
+    <value>Search recipe</value>
+  </data>
+  <data name="Sugar" xml:space="preserve">
+    <value>Sugar</value>
+  </data>
+  <data name="tbsp" xml:space="preserve">
+    <value>tbsp</value>
+  </data>
+  <data name="TotalCost" xml:space="preserve">
+    <value>Total cost</value>
+  </data>
+  <data name="tsp" xml:space="preserve">
+    <value>tsp</value>
+  </data>
+  <data name="unit" xml:space="preserve">
+    <value>unit</value>
+  </data>
+  <data name="Unit_cup" xml:space="preserve">
+    <value>Cup</value>
+  </data>
+  <data name="Unit_g" xml:space="preserve">
+    <value>Gram</value>
+  </data>
+  <data name="Unit_L" xml:space="preserve">
+    <value>Liter</value>
+  </data>
+  <data name="Unit_lb" xml:space="preserve">
+    <value>Pound</value>
+  </data>
+  <data name="Unit_mg" xml:space="preserve">
+    <value>Milligram</value>
+  </data>
+  <data name="Unit_ml" xml:space="preserve">
+    <value>Milliliter</value>
+  </data>
+  <data name="Unit_oz" xml:space="preserve">
+    <value>Ounce</value>
+  </data>
+  <data name="Unit_tbsp" xml:space="preserve">
+    <value>Tablespoon</value>
+  </data>
+  <data name="Unit_tsp" xml:space="preserve">
+    <value>Teaspoon</value>
+  </data>
+  <data name="Unit_unit" xml:space="preserve">
+    <value>Unit</value>
+  </data>
+  <data name="Vanilla" xml:space="preserve">
+    <value>Vanilla</value>
+  </data>
+  <data name="Yeast" xml:space="preserve">
+    <value>Yeast</value>
+  </data>
+</root>

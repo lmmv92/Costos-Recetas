@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CostosRecetas.RecetaDetailsPage"
+             xmlns:s="clr-namespace:CostosRecetas.Resources"
+             xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+             xmlns:m="clr-namespace:UraniumUI.Icons.MaterialIcons;assembly=UraniumUI.Icons.MaterialIcons"
+             xmlns:viewmodel="clr-namespace:CostosRecetas.ViewModels"
+             xmlns:model="clr-namespace:CostosRecetas.Models"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:DataType="viewmodel:RecetaDetailsViewModel"
+             Title="{x:Static s:AppResources.RecipeDetails}">
+    <AbsoluteLayout Margin="20,20">
+        <ScrollView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+            <StackLayout Padding="20" Spacing="20">
+                <Label FontSize="Medium" Text="{Binding Receta.Nombre}" TextColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}" />
+
+                <Label Text="{x:Static s:AppResources.Ingredients}">
+                    <Label.Triggers>
+                        <DataTrigger TargetType="Label" Binding="{Binding IngredientesSeleccionados.Count}" Value="0">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+                <CollectionView ItemsSource="{Binding IngredientesSeleccionados}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:IngredienteReceta">
+                            <StackLayout>
+                                <Grid RowDefinitions="auto,auto" ColumnDefinitions="*, *" ColumnSpacing="1" Padding="5">
+                                    <Label Grid.Column="0" VerticalOptions="Center" Text="{Binding IngredienteNav.Nombre}" />
+                                    <Label Grid.Column="1" VerticalOptions="Center" HorizontalOptions="End" Text="{Binding CantidadUnidad}" HorizontalTextAlignment="Center" />
+                                    <BoxView Grid.Row="1" Margin="5" Grid.ColumnSpan="2" StyleClass="Divider" Color="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource Secondary}}"/>
+                                </Grid>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <Label Text="{x:Static s:AppResources.Preparation}" />
+                <Label Text="{Binding Receta.Preparacion}" />
+            </StackLayout>
+        </ScrollView>
+        <Button StyleClass="FabButton, MenuFab, Elevation3" Command="{Binding ToggleFabCommand}">
+            <Button.ImageSource>
+                <FontImageSource FontFamily="MaterialRegular" Glyph="{Binding MainFabIcon}" Color="White"/>
+            </Button.ImageSource>
+        </Button>
+        <Button AbsoluteLayout.LayoutBounds="1,0.8,50,50"  StyleClass="FabButton, EditFab, Elevation3" Command="{Binding EditarRecetaCommand}" IsVisible="{Binding MainFab}" />
+        <Button AbsoluteLayout.LayoutBounds="1,0.6,50,50"  StyleClass="FabButton, CostFab, Elevation3" Command="{Binding VerCostosRecetaCommand}" IsVisible="{Binding MainFab}"/>
+    </AbsoluteLayout>
+</ContentPage>
