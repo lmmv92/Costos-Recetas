@@ -48,5 +48,7 @@ namespace CostosRecetas.Helpers
             new() {Nombre = AppResources.Yeast,             Cantidad = 230,     UnidadMedidaId = 1 },         
             new() {Nombre = AppResources.Oil,               Cantidad = 500,     UnidadMedidaId = 4 }           
         ];
+
+        public const string KeepScreenOn = "keep_screen_on";
     }
 }

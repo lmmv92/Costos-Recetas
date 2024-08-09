@@ -6,21 +6,33 @@
     xmlns:s="clr-namespace:CostosRecetas.Resources"
     xmlns:m="clr-namespace:UraniumUI.Icons.MaterialSymbols;assembly=UraniumUI.Icons.MaterialSymbols"
     xmlns:local="clr-namespace:CostosRecetas"    
+    Shell.UnselectedColor="Green"
+    Shell.TabBarUnselectedColor="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource White}}"
+    Shell.TabBarForegroundColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}"
+    Shell.TabBarTitleColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}"
     Title="CostosRecetas">
 
-    <TabBar>
+    <FlyoutItem Title="{x:Static s:AppResources.Home}">
+        <FlyoutItem.Icon>
+            <FontImageSource FontFamily="MaterialSharp" Glyph="{x:Static m:MaterialSharp.Home}" Color="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDarkText}}"/>
+        </FlyoutItem.Icon>
         <Tab Title="{x:Static s:AppResources.Ingredients}">
-            <ShellContent ContentTemplate="{DataTemplate local:IngredientesPage}" />
             <Tab.Icon>
                 <FontImageSource FontFamily="MaterialSharp" Glyph="{x:Static m:MaterialSharp.Grocery}"/>
             </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate local:IngredientesPage}" />
         </Tab>
-        <Tab Title="{x:Static s:AppResources.Recipes}" >
-            <ShellContent ContentTemplate="{DataTemplate local:RecetasPage}" />
+        <Tab Title="{x:Static s:AppResources.Recipes}">
             <Tab.Icon>
-                <FontImageSource FontFamily="MaterialSharp" Glyph="{x:Static m:MaterialSharp.Book}"/>
+                <FontImageSource FontFamily="MaterialSharp" Glyph="{x:Static m:MaterialSharp.Book}" Color="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDarkText}}"/>
             </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate local:RecetasPage}" />
         </Tab>
-    </TabBar>
-
+    </FlyoutItem>
+    <FlyoutItem Title="{x:Static s:AppResources.Settings}">
+        <FlyoutItem.Icon>
+            <FontImageSource FontFamily="MaterialSharp" Glyph="{x:Static m:MaterialSharp.Settings}" Color="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDarkText}}"/>
+        </FlyoutItem.Icon>
+        <ShellContent ContentTemplate="{DataTemplate local:SettingsPage}" />
+    </FlyoutItem>
 </Shell>

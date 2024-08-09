@@ -16,4 +16,9 @@ public partial class RecetaDetailsPage : ContentPage
         base.OnAppearing();
         await _vm.CargarReceta();
     }
+
+    protected override void OnDisappearing() {
+        base.OnDisappearing();
+        DeviceDisplay.Current.KeepScreenOn = false;
+    }
 }

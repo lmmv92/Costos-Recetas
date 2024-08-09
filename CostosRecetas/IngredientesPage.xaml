@@ -8,10 +8,11 @@
              xmlns:m="clr-namespace:UraniumUI.Icons.MaterialIcons;assembly=UraniumUI.Icons.MaterialIcons"
              xmlns:viewmodel="clr-namespace:CostosRecetas.ViewModels"             
              xmlns:model="clr-namespace:CostosRecetas.Models"
-             x:DataType="viewmodel:IngredientesViewModel">
+             x:DataType="viewmodel:IngredientesViewModel"
+             Title="{x:Static s:AppResources.Ingredients}">
 
     <AbsoluteLayout Margin="20">
-        <Grid RowDefinitions="Auto, *" RowSpacing="10" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+        <Grid RowDefinitions="auto,*" RowSpacing="10" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
             <material:InputField Grid.Row="0">
                 <SearchBar Placeholder="{x:Static s:AppResources.SearchPlaceholderIngr}" Text="{Binding TextoBuscar}">
                     <SearchBar.Behaviors>

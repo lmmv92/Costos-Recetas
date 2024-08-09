@@ -11,7 +11,7 @@
     <ScrollView>
         <StackLayout Padding="20" Spacing="30">
             <material:TextField Title="{x:Static s:AppResources.IngrName}" Text="{Binding Ingrediente.Nombre}"/>
-            <Grid ColumnDefinitions="*,*" RowDefinitions="auto,auto" ColumnSpacing="15">
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="15">
                 <material:TextField Grid.Column="0" Title="{x:Static s:AppResources.IngrQty}" Text="{Binding Ingrediente.Cantidad}" Keyboard="Numeric" />
                 <material:PickerField Grid.Column="1" Title="{x:Static s:AppResources.IngrUnit}" ItemsSource="{Binding UnidadesMedidaPicker}" ItemDisplayBinding="{Binding Nombre}" SelectedItem="{Binding UnidadSeleccionada}"/>
             </Grid>

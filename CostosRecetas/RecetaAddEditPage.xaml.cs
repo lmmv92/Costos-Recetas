@@ -22,6 +22,7 @@ public partial class RecetaAddEditPage : ContentPage
             if (grid.FindByName<Picker>("picker") == null) {
                 var picker = new Picker();
                 picker.ItemDisplayBinding = new Binding("Abreviatura");
+                picker.HorizontalTextAlignment = TextAlignment.Center;
                 picker.SetBinding(Picker.ItemsSourceProperty, new Binding("UnidadesMedidaPicker", source: _vm));
                 picker.SetBinding(Picker.SelectedItemProperty, new Binding("UnidadMedidaNav", BindingMode.TwoWay));
                 picker.SetValue(Grid.ColumnProperty, 3);

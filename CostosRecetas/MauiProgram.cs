@@ -49,6 +49,9 @@ namespace CostosRecetas
             builder.Services.AddTransient<RecetaCostosPage>();
             builder.Services.AddTransient<RecetaCostosViewModel>();
 
+            builder.Services.AddTransient<SettingsPage>();
+            builder.Services.AddTransient<SettingsViewModel>();
+
             return builder.Build();
         }
     }

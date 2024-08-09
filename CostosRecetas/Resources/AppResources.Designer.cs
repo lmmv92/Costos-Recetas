@@ -241,6 +241,15 @@ namespace CostosRecetas.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Inicio.
+        /// </summary>
+        internal static string Home {
+            get {
+                return ResourceManager.GetString("Home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Se agregó el ingrediente.
         /// </summary>
         internal static string IngrAdded {
@@ -336,6 +345,15 @@ namespace CostosRecetas.Resources {
         internal static string IngrUpdtd {
             get {
                 return ResourceManager.GetString("IngrUpdtd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mantener la pantalla encendida en los detalles de una receta.
+        /// </summary>
+        internal static string KeepScreenOnDetailsPage {
+            get {
+                return ResourceManager.GetString("KeepScreenOnDetailsPage", resourceCulture);
             }
         }
         
@@ -534,6 +552,15 @@ namespace CostosRecetas.Resources {
         internal static string SearchPlaceholderRecipe {
             get {
                 return ResourceManager.GetString("SearchPlaceholderRecipe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Configuración.
+        /// </summary>
+        internal static string Settings {
+            get {
+                return ResourceManager.GetString("Settings", resourceCulture);
             }
         }
         

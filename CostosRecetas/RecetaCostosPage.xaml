@@ -31,7 +31,7 @@
                 </material:DataGrid.Columns>
             </material:DataGrid>
             <Border HorizontalOptions="Center" Padding="20,0" BackgroundColor="{AppThemeBinding Light={StaticResource Tertiary}, Dark={StaticResource TertiaryDark}}" StrokeShape="RoundRectangle 0,0,40,40">
-                <Grid ColumnDefinitions="auto,auto" ColumnSpacing="50" Padding="20,10">
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="50" Padding="20,10">
                     <Label Grid.Column="0" Text="{x:Static s:AppResources.TotalCost}" />
                     <Label Grid.Column="1" Text="{Binding CostoTotalPrimario, StringFormat='{0:C}'}" HorizontalOptions="End"/>
                 </Grid>

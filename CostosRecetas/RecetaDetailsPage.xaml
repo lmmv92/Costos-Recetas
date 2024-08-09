@@ -26,7 +26,7 @@
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="model:IngredienteReceta">
                             <StackLayout>
-                                <Grid RowDefinitions="auto,auto" ColumnDefinitions="*, *" ColumnSpacing="1" Padding="5">
+                                <Grid RowDefinitions="*,*" ColumnDefinitions="*, *" ColumnSpacing="1" Padding="5">
                                     <Label Grid.Column="0" VerticalOptions="Center" Text="{Binding IngredienteNav.Nombre}" />
                                     <Label Grid.Column="1" VerticalOptions="Center" HorizontalOptions="End" Text="{Binding CantidadUnidad}" HorizontalTextAlignment="Center" />
                                     <BoxView Grid.Row="1" Margin="5" Grid.ColumnSpan="2" StyleClass="Divider" Color="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource Secondary}}"/>

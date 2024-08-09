@@ -8,11 +8,12 @@
              xmlns:m="clr-namespace:UraniumUI.Icons.MaterialIcons;assembly=UraniumUI.Icons.MaterialIcons"
              xmlns:viewmodel="clr-namespace:CostosRecetas.ViewModels"
              xmlns:model="clr-namespace:CostosRecetas.Models"
-             x:DataType="viewmodel:RecetasViewModel">
+             x:DataType="viewmodel:RecetasViewModel"
+             Title="{x:Static s:AppResources.Recipes}">
     <AbsoluteLayout Margin="20">
         <Grid RowDefinitions="Auto, *" RowSpacing="10" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
             <material:InputField Grid.Row="0">
-                <SearchBar Placeholder="{x:Static s:AppResources.SearchPlaceholderIngr}" Text="{Binding TextoBuscar}">
+                <SearchBar Placeholder="{x:Static s:AppResources.SearchPlaceholderRecipe}" Text="{Binding TextoBuscar}">
                     <SearchBar.Behaviors>
                         <toolkit:EventToCommandBehavior EventName="TextChanged" Command="{Binding BuscarRecetasCommand}" />
                     </SearchBar.Behaviors>

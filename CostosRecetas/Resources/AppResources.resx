@@ -177,6 +177,9 @@
   <data name="g" xml:space="preserve">
     <value>g</value>
   </data>
+  <data name="Home" xml:space="preserve">
+    <value>Inicio</value>
+  </data>
   <data name="IngrAdded" xml:space="preserve">
     <value>Se agregó el ingrediente</value>
   </data>
@@ -209,6 +212,9 @@
   </data>
   <data name="IngrUpdtd" xml:space="preserve">
     <value>Se actualizó el ingrediente</value>
+  </data>
+  <data name="KeepScreenOnDetailsPage" xml:space="preserve">
+    <value>Mantener la pantalla encendida en los detalles de una receta</value>
   </data>
   <data name="L" xml:space="preserve">
     <value>L</value>
@@ -275,6 +281,9 @@
   </data>
   <data name="SearchPlaceholderRecipe" xml:space="preserve">
     <value>Buscar receta</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Configuración</value>
   </data>
   <data name="Sugar" xml:space="preserve">
     <value>Azúcar</value>

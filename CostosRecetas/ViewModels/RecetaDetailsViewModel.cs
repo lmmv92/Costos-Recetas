@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Maui.Core.Extensions;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CostosRecetas.Helpers;
 using CostosRecetas.Models;
 using CostosRecetas.Resources;
 using CostosRecetas.Services;
@@ -33,6 +34,7 @@ public partial class RecetaDetailsViewModel : ObservableObject
     public RecetaDetailsViewModel(IDbService dbService, IAlertService alertService) {
         _dbService = dbService;
         _alertService = alertService;
+        DeviceDisplay.Current.KeepScreenOn = Preferences.Get(Constants.KeepScreenOn, false);
     }
 
     public async Task CargarReceta() {
