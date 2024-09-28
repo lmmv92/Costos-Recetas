@@ -219,6 +219,9 @@
   <data name="L" xml:space="preserve">
     <value>L</value>
   </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
   <data name="lb" xml:space="preserve">
     <value>lb</value>
   </data>
@@ -252,8 +255,14 @@
   <data name="RecipeAdded" xml:space="preserve">
     <value>Recipe added</value>
   </data>
+  <data name="RecipeCosts" xml:space="preserve">
+    <value>Recipe costs</value>
+  </data>
   <data name="RecipeDelete" xml:space="preserve">
     <value>Delete the recipe</value>
+  </data>
+  <data name="RecipeDetails" xml:space="preserve">
+    <value>Recipe details</value>
   </data>
   <data name="Recipes" xml:space="preserve">
     <value>Recipes</value>
@@ -329,5 +338,8 @@
   </data>
   <data name="Yeast" xml:space="preserve">
     <value>Yeast</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Currency</value>
   </data>
 </root>

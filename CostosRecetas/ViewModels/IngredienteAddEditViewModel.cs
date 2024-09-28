@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Maui.Core.Extensions;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CostosRecetas.Models;
 using CostosRecetas.Resources;
@@ -28,8 +29,12 @@ public partial class IngredienteAddEditViewModel : ObservableObject
 
     public IngredienteAddEditViewModel(IDbService dbService, IAlertService alertService) {
         _dbService = dbService;
-        _alertService = alertService;
-                   
+        _alertService = alertService;       
+    }
+
+    [RelayCommand]
+    public void NombreTextChanged(string newText) {
+        Ingrediente.Nombre = newText;
     }
 
     [RelayCommand]

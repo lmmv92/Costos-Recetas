@@ -1,6 +1,8 @@
 ﻿using CommunityToolkit.Maui;
+using CostosRecetas.Resources;
 using CostosRecetas.Services;
 using CostosRecetas.ViewModels;
+using LocalizationResourceManager.Maui;
 using Microsoft.Extensions.Logging;
 using UraniumUI;
 
@@ -15,6 +17,10 @@ namespace CostosRecetas
                 .UseMauiCommunityToolkit()
                 .UseUraniumUI()
                 .UseUraniumUIMaterial()
+                .UseLocalizationResourceManager(settings => {
+                    settings.AddResource(AppResources.ResourceManager);
+                    settings.RestoreLatestCulture(true);
+                })
                 .ConfigureFonts(fonts => {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
@@ -30,6 +36,7 @@ namespace CostosRecetas
             builder.Services.AddSingleton<IDbService>(s => new DbService(dbPath));
             builder.Services.AddSingleton<IAlertService, AlertService>();
             builder.Services.AddSingleton<IUnitConversionService, UnitConversionService>();
+            builder.Services.AddSingleton<ICurrencyService, CurrencyService>();
 
             builder.Services.AddTransient<IngredientesPage>();
             builder.Services.AddTransient<IngredientesViewModel>();

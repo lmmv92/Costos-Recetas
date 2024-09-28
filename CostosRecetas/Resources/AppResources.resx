@@ -214,10 +214,13 @@
     <value>Se actualizó el ingrediente</value>
   </data>
   <data name="KeepScreenOnDetailsPage" xml:space="preserve">
-    <value>Mantener la pantalla encendida en los detalles de una receta</value>
+    <value>Mantener la pantalla encendida en el detalle de una receta</value>
   </data>
   <data name="L" xml:space="preserve">
     <value>L</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Idioma</value>
   </data>
   <data name="lb" xml:space="preserve">
     <value>lb</value>
@@ -335,5 +338,8 @@
   </data>
   <data name="Yeast" xml:space="preserve">
     <value>Levadura</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Moneda</value>
   </data>
 </root>

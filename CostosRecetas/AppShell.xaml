@@ -3,7 +3,7 @@
     x:Class="CostosRecetas.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:s="clr-namespace:CostosRecetas.Resources"
+    xmlns:localize="clr-namespace:LocalizationResourceManager.Maui;assembly=LocalizationResourceManager.Maui"
     xmlns:m="clr-namespace:UraniumUI.Icons.MaterialSymbols;assembly=UraniumUI.Icons.MaterialSymbols"
     xmlns:local="clr-namespace:CostosRecetas"    
     Shell.UnselectedColor="Green"
@@ -12,24 +12,24 @@
     Shell.TabBarTitleColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}"
     Title="CostosRecetas">
 
-    <FlyoutItem Title="{x:Static s:AppResources.Home}">
+    <FlyoutItem Title="{localize:Translate Home}">
         <FlyoutItem.Icon>
             <FontImageSource FontFamily="MaterialSharp" Glyph="{x:Static m:MaterialSharp.Home}" Color="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDarkText}}"/>
         </FlyoutItem.Icon>
-        <Tab Title="{x:Static s:AppResources.Ingredients}">
+        <Tab Title="{localize:Translate Ingredients}">
             <Tab.Icon>
                 <FontImageSource FontFamily="MaterialSharp" Glyph="{x:Static m:MaterialSharp.Grocery}"/>
             </Tab.Icon>
             <ShellContent ContentTemplate="{DataTemplate local:IngredientesPage}" />
         </Tab>
-        <Tab Title="{x:Static s:AppResources.Recipes}">
+        <Tab Title="{localize:Translate Recipes}">
             <Tab.Icon>
                 <FontImageSource FontFamily="MaterialSharp" Glyph="{x:Static m:MaterialSharp.Book}" Color="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDarkText}}"/>
             </Tab.Icon>
             <ShellContent ContentTemplate="{DataTemplate local:RecetasPage}" />
         </Tab>
     </FlyoutItem>
-    <FlyoutItem Title="{x:Static s:AppResources.Settings}">
+    <FlyoutItem Title="{localize:Translate Settings}">
         <FlyoutItem.Icon>
             <FontImageSource FontFamily="MaterialSharp" Glyph="{x:Static m:MaterialSharp.Settings}" Color="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDarkText}}"/>
         </FlyoutItem.Icon>

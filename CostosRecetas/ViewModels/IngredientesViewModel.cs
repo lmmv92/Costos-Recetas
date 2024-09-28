@@ -32,7 +32,7 @@ public partial class IngredientesViewModel : ObservableObject
 
     public async Task CargarIngredientes() {
         var ingredientes = await _dbService.GetAllAsync<Ingrediente>();
-        Ingredientes = ingredientes.OrderBy(i => i.Nombre).ToObservableCollection();
+        Ingredientes = ingredientes.OrderBy(i => i.NombreLocalizado).ToObservableCollection();
     }
     
     [RelayCommand]
@@ -42,8 +42,9 @@ public partial class IngredientesViewModel : ObservableObject
             return;
         }
 
-        Expression<Func<Ingrediente, bool>> expression = x => x.Nombre.ToLower().Contains(TextoBuscar.ToLower());
-        var ingredientes = await _dbService.GetFilteredAsync<Ingrediente>(expression);        
+        var ingredientes = await _dbService.GetAllAsync<Ingrediente>();
+        bool expression(Ingrediente x) => x.NombreLocalizado.ToLower().Contains(TextoBuscar.ToLower());
+        ingredientes = ingredientes.Where(expression).ToList();
 
         Ingredientes = ingredientes.ToObservableCollection();
     }
@@ -66,7 +67,7 @@ public partial class IngredientesViewModel : ObservableObject
 
     [RelayCommand]
     public async Task EliminarIngrediente(Ingrediente ingrediente) {
-        if (await _alertService.ShowConfirmationAsync(AppResources.Delete, $"{AppResources.IngrDelete} '{ingrediente.Nombre}'?")) {
+        if (await _alertService.ShowConfirmationAsync(AppResources.Delete, $"{AppResources.IngrDelete} '{ingrediente.NombreLocalizado}'?")) {
             await _dbService.Delete(ingrediente);
             await CargarIngredientes();
         }

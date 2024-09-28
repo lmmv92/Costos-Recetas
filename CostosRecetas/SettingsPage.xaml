@@ -2,46 +2,27 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"             
              x:Class="CostosRecetas.SettingsPage"             
-             xmlns:s="clr-namespace:CostosRecetas.Resources"
+             xmlns:localize="clr-namespace:LocalizationResourceManager.Maui;assembly=LocalizationResourceManager.Maui"             
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:viewmodel="clr-namespace:CostosRecetas.ViewModels"
              x:DataType="viewmodel:SettingsViewModel"
-             Title="{x:Static s:AppResources.Settings}">
+             Title="{localize:Translate Settings}">
     <ScrollView>
         <Grid RowDefinitions="50,50,50,*" ColumnDefinitions="2*,*" Padding="20">
-            <Label Grid.Row="0" Grid.Column="0" Text="{x:Static s:AppResources.KeepScreenOnDetailsPage}" VerticalOptions="Center"/>
-            <Switch Grid.Row="0" Grid.Column="1" IsToggled="{Binding ToggleScreenOn}">
-                <Switch.Behaviors>
-                    <toolkit:EventToCommandBehavior EventName="Toggled" Command="{Binding ToggleKeepScreenOnCommand}"/>
-                </Switch.Behaviors>
-            </Switch>
-
-            <!--<Label Grid.Row="1" Grid.Column="0" Text="Tema" VerticalOptions="Center" />
-            <Picker Grid.Row="1" Grid.Column="1" SelectedIndex="{Binding .}">
-                <Picker.Items>
-                    <x:String>Claro</x:String>
-                    <x:String>Oscuro</x:String>
-                </Picker.Items>
-            </Picker>
-
-            <Label Grid.Row="2" Grid.Column="0" Text="Idioma" VerticalOptions="Center" />
-            <Picker Grid.Row="2" Grid.Column="1" SelectedIndex="{Binding .}">
-                <Picker.Items>
-                    <x:String>Español</x:String>
-                    <x:String>Inglés</x:String>
-                    <x:String>Francés</x:String>
-                </Picker.Items>
-            </Picker>-->
+            <Label Grid.Row="0" Grid.Column="0" Text="{localize:Translate Language}" VerticalOptions="Center" />
+            <Picker Grid.Row="0" Grid.Column="1" ItemsSource="{Binding CulturesPicker}" ItemDisplayBinding="{Binding DisplayName}" SelectedItem="{Binding CultureSelected}" />
             
+            <Label Grid.Row="1" Grid.Column="0" Text="{localize:Translate Currency}" VerticalOptions="Center" />
+            <Picker Grid.Row="1" Grid.Column="1" ItemsSource="{Binding CurrencyPicker}" SelectedItem="{Binding CurrencySelected}" />
+            
+            <Label Grid.Row="2" Grid.Column="0" Text="{localize:Translate KeepScreenOnDetailsPage}" VerticalOptions="Center"/>
+            <Switch Grid.Row="2" Grid.Column="1" IsToggled="{Binding ToggleScreenOn}" />
 
+            <!--TODO: Dark/light theme-->
+            
             <Label Grid.Row="3" Grid.ColumnSpan="2" Text="Versión 1.0.0" FontSize="12" HorizontalOptions="Center" VerticalOptions="End" />
 
         </Grid>
     </ScrollView>
 
 </ContentPage>
-
-
-<!--</ContentPage>-->
-    
-    

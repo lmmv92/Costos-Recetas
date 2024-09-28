@@ -2,38 +2,38 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CostosRecetas.RecetaCostosPage"
-             xmlns:s="clr-namespace:CostosRecetas.Resources"
+             xmlns:localize="clr-namespace:LocalizationResourceManager.Maui;assembly=LocalizationResourceManager.Maui"
              xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
              xmlns:viewmodel="clr-namespace:CostosRecetas.ViewModels"
              xmlns:model="clr-namespace:CostosRecetas.Models"
              x:DataType="viewmodel:RecetaCostosViewModel"
-             Title="{x:Static s:AppResources.RecipeCosts}">
+             Title="{localize:Translate RecipeCosts}">
 
     <ScrollView Margin="20">
         <StackLayout Padding="0" Spacing="20">
             <Label FontSize="Medium" Text="{Binding Receta.Nombre}" TextColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}"/>
-            <material:DataGrid ItemsSource="{Binding IngredientesReceta}" HorizontalOptions="Center" Padding="20,0" LineSeparatorColor="{x:StaticResource Secondary}" BackgroundColor="{AppThemeBinding Light={StaticResource Tertiary}, Dark={StaticResource TertiaryDark}}">
+            <material:DataGrid ItemsSource="{Binding IngredientesReceta}"  Padding="20,0" LineSeparatorColor="{x:StaticResource Secondary}" BackgroundColor="{AppThemeBinding Light={StaticResource Tertiary}, Dark={StaticResource SecondaryDarkText}}">
                 <material:DataGrid.Columns>
-                    <material:DataGridColumn Title="{x:Static s:AppResources.Ingredient}" Width="auto">
+                    <material:DataGridColumn Title="{localize:Translate Ingredient}" Width="2*">
                         <material:DataGridColumn.CellItemTemplate>
                             <DataTemplate x:DataType="model:IngredienteRecetaCosto" >
-                                <Label Padding="0,15" Text="{Binding IngredienteReceta.IngredienteNav.Nombre}"/>
+                                <Label Padding="0,15" Text="{Binding IngredienteReceta.IngredienteNav.NombreLocalizado}"/>
                             </DataTemplate>
                         </material:DataGridColumn.CellItemTemplate>
                     </material:DataGridColumn>
-                    <material:DataGridColumn Title="{x:Static s:AppResources.Cost}" Width="auto">
+                    <material:DataGridColumn Title="{localize:Translate Cost}" Width="*">
                         <material:DataGridColumn.CellItemTemplate>
                             <DataTemplate x:DataType="model:IngredienteRecetaCosto" >
-                                <Label Padding="0,15" Text="{Binding Costo, StringFormat='{0:C}'}" HorizontalOptions="End" />
+                                <Label Padding="0,15" Text="{Binding Costo, Converter={StaticResource CurrencyFormatConverter}}" HorizontalOptions="End" />
                             </DataTemplate>
                         </material:DataGridColumn.CellItemTemplate>
                     </material:DataGridColumn>
                 </material:DataGrid.Columns>
             </material:DataGrid>
-            <Border HorizontalOptions="Center" Padding="20,0" BackgroundColor="{AppThemeBinding Light={StaticResource Tertiary}, Dark={StaticResource TertiaryDark}}" StrokeShape="RoundRectangle 0,0,40,40">
-                <Grid ColumnDefinitions="*,*" ColumnSpacing="50" Padding="20,10">
-                    <Label Grid.Column="0" Text="{x:Static s:AppResources.TotalCost}" />
-                    <Label Grid.Column="1" Text="{Binding CostoTotalPrimario, StringFormat='{0:C}'}" HorizontalOptions="End"/>
+            <Border Padding="20,0" BackgroundColor="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource TertiaryDark}}" StrokeShape="RoundRectangle 0,0,40,40">
+                <Grid ColumnDefinitions="2*,*" ColumnSpacing="50" Padding="20,10">
+                    <Label Grid.Column="0" Text="{localize:Translate TotalCost}" />
+                    <Label Grid.Column="1" Text="{Binding CostoTotalPrimario, Converter={StaticResource CurrencyFormatConverter}}" HorizontalOptions="End"/>
                 </Grid>
             </Border>
         </StackLayout>

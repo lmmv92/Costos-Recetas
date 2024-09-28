@@ -2,20 +2,20 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CostosRecetas.RecetaDetailsPage"
-             xmlns:s="clr-namespace:CostosRecetas.Resources"
+             xmlns:localize="clr-namespace:LocalizationResourceManager.Maui;assembly=LocalizationResourceManager.Maui"
              xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
              xmlns:m="clr-namespace:UraniumUI.Icons.MaterialIcons;assembly=UraniumUI.Icons.MaterialIcons"
              xmlns:viewmodel="clr-namespace:CostosRecetas.ViewModels"
              xmlns:model="clr-namespace:CostosRecetas.Models"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:DataType="viewmodel:RecetaDetailsViewModel"
-             Title="{x:Static s:AppResources.RecipeDetails}">
+             Title="{localize:Translate RecipeDetails}">
     <AbsoluteLayout Margin="20,20">
         <ScrollView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
             <StackLayout Padding="20" Spacing="20">
                 <Label FontSize="Medium" Text="{Binding Receta.Nombre}" TextColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}" />
 
-                <Label Text="{x:Static s:AppResources.Ingredients}">
+                <Label Text="{localize:Translate Ingredients}">
                     <Label.Triggers>
                         <DataTrigger TargetType="Label" Binding="{Binding IngredientesSeleccionados.Count}" Value="0">
                             <Setter Property="IsVisible" Value="False" />
@@ -27,7 +27,7 @@
                         <DataTemplate x:DataType="model:IngredienteReceta">
                             <StackLayout>
                                 <Grid RowDefinitions="*,*" ColumnDefinitions="*, *" ColumnSpacing="1" Padding="5">
-                                    <Label Grid.Column="0" VerticalOptions="Center" Text="{Binding IngredienteNav.Nombre}" />
+                                    <Label Grid.Column="0" VerticalOptions="Center" Text="{Binding IngredienteNav.NombreLocalizado}" />
                                     <Label Grid.Column="1" VerticalOptions="Center" HorizontalOptions="End" Text="{Binding CantidadUnidad}" HorizontalTextAlignment="Center" />
                                     <BoxView Grid.Row="1" Margin="5" Grid.ColumnSpan="2" StyleClass="Divider" Color="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource Secondary}}"/>
                                 </Grid>
@@ -36,7 +36,7 @@
                     </CollectionView.ItemTemplate>
                 </CollectionView>
 
-                <Label Text="{x:Static s:AppResources.Preparation}" />
+                <Label Text="{localize:Translate Preparation}" />
                 <Label Text="{Binding Receta.Preparacion}" />
             </StackLayout>
         </ScrollView>

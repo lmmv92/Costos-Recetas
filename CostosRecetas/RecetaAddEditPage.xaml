@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CostosRecetas.RecetaAddEditPage"
-             xmlns:s="clr-namespace:CostosRecetas.Resources"
+             xmlns:localize="clr-namespace:LocalizationResourceManager.Maui;assembly=LocalizationResourceManager.Maui"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
              xmlns:viewmodel="clr-namespace:CostosRecetas.ViewModels"
@@ -12,15 +12,15 @@
 
     <ScrollView>
         <StackLayout Padding="20" Spacing="10">
-            <material:TextField Title="{x:Static s:AppResources.RecpName}"  Text="{Binding Receta.Nombre}"/>
+            <material:TextField Title="{localize:Translate RecpName}"  Text="{Binding Receta.Nombre}"/>
 
             <material:TabView>
-                <material:TabItem Title="{x:Static s:AppResources.Ingredients}">
+                <material:TabItem Title="{localize:Translate Ingredients}">
                     <material:TabItem.ContentTemplate>
                         <DataTemplate>
                             <StackLayout Padding="0,20" Spacing="20">
                                 <material:InputField>
-                                    <SearchBar Placeholder="{x:Static s:AppResources.SearchPlaceholderIngr}" Text="{Binding TextoBuscar}">
+                                    <SearchBar Placeholder="{localize:Translate SearchPlaceholderIngr}" Text="{Binding TextoBuscar}">
                                         <SearchBar.Behaviors>
                                             <toolkit:EventToCommandBehavior EventName="TextChanged" Command="{Binding BuscarIngredientesCommand}" />
                                         </SearchBar.Behaviors>
@@ -34,7 +34,7 @@
                                                     <TapGestureRecognizer Command="{Binding AgregarIngredienteRecetaCommand, Source={RelativeSource AncestorType={x:Type viewmodel:RecetaAddEditViewModel}}}" CommandParameter="{Binding .}"/>
                                                 </Border.GestureRecognizers>
                                                 <StackLayout>
-                                                    <Label Text="{Binding Nombre}" />
+                                                    <Label Text="{Binding NombreLocalizado}" />
                                                 </StackLayout>
                                                 <!--<VisualStateManager.VisualStateGroups>
                                                 <VisualStateGroup x:Name="CommonStates">
@@ -64,7 +64,7 @@
                                 </CollectionView>
 
                                 <!--Ingredientes seleccionados-->
-                                <Label Text="{x:Static s:AppResources.IngredientsRecipe}">
+                                <Label Text="{localize:Translate IngredientsRecipe}">
                                     <Label.Triggers>
                                         <DataTrigger TargetType="Label" Binding="{Binding IngredientesSeleccionados.Count}" Value="0">
                                             <Setter Property="IsVisible" Value="False" />
@@ -78,13 +78,13 @@
                                             <SwipeView>
                                                 <SwipeView.RightItems>
                                                     <SwipeItems>
-                                                        <SwipeItem Text="{x:Static s:AppResources.Delete}" BackgroundColor="Red" Command="{Binding EliminarIngredienteRecetaCommand, Source={RelativeSource AncestorType={x:Type viewmodel:RecetaAddEditViewModel}}}" CommandParameter="{Binding .}" />
+                                                        <SwipeItem Text="{localize:Translate Delete}" BackgroundColor="Red" Command="{Binding EliminarIngredienteRecetaCommand, Source={RelativeSource AncestorType={x:Type viewmodel:RecetaAddEditViewModel}}}" CommandParameter="{Binding .}" />
                                                     </SwipeItems>
                                                 </SwipeView.RightItems>
                                                 <Border Padding="10,5" Stroke="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}" StrokeThickness="0.4" StrokeShape="RoundRectangle 7,7,7,7">
                                                     <FlyoutBase.ContextFlyout>
                                                         <MenuFlyout>
-                                                            <MenuFlyoutItem Text="{x:Static s:AppResources.Delete}" Command="{Binding EliminarIngredienteRecetaCommand, Source={RelativeSource AncestorType={x:Type viewmodel:RecetaAddEditViewModel}}}" CommandParameter="{Binding .}" />
+                                                            <MenuFlyoutItem Text="{localize:Translate Delete}" Command="{Binding EliminarIngredienteRecetaCommand, Source={RelativeSource AncestorType={x:Type viewmodel:RecetaAddEditViewModel}}}" CommandParameter="{Binding .}" />
                                                         </MenuFlyout>
                                                     </FlyoutBase.ContextFlyout>
                                                     <Border.GestureRecognizers>
@@ -93,8 +93,8 @@
                                                     </Border.GestureRecognizers>
                                                     <Grid ColumnDefinitions="Auto,*, 80, 80" ColumnSpacing="1" BindingContextChanged="Grid_BindingContextChanged">
                                                         <!--<Label Grid.Column="0" VerticalOptions="Center" Text="{Binding NumeroItem}"/>-->
-                                                        <Label Grid.Column="1" VerticalOptions="Center" Text="{Binding IngredienteNav.Nombre}" />
-                                                        <Entry Grid.Column="2" Placeholder="{x:Static s:AppResources.IngrQty}" Text="{Binding Cantidad}" HorizontalTextAlignment="Center" Keyboard="Numeric" />
+                                                        <Label Grid.Column="1" VerticalOptions="Center" Text="{Binding IngredienteNav.NombreLocalizado}" />
+                                                        <Entry Grid.Column="2" Placeholder="{localize:Translate IngrQty}" Text="{Binding Cantidad}" HorizontalTextAlignment="Center" Keyboard="Numeric" />
                                                         <!--<Picker Grid.Column="2" ItemsSource="{Binding UnidadesMedidaPicker, Source={RelativeSource AncestorType={x:Type viewmodel:RecetaAddEditViewModel}}}" ItemDisplayBinding="{Binding Nombre}" SelectedItem="{Binding UnidadMedidaNav}"/>-->
                                                     </Grid>
                                                 </Border>
@@ -107,17 +107,17 @@
                     </material:TabItem.ContentTemplate>
                 </material:TabItem>
 
-                <material:TabItem Title="{x:Static s:AppResources.Preparation}">
+                <material:TabItem Title="{localize:Translate Preparation}">
                     <material:TabItem.ContentTemplate>
                         <DataTemplate>
                             <StackLayout Padding="0,20" Spacing="20">
-                                <material:EditorField Title="{x:Static s:AppResources.PreparationInstr}" Text="{Binding Receta.Preparacion}"/>
+                                <material:EditorField Title="{localize:Translate PreparationInstr}" Text="{Binding Receta.Preparacion}"/>
                             </StackLayout>
                         </DataTemplate>
                     </material:TabItem.ContentTemplate>
                 </material:TabItem>
             </material:TabView>
-            <Button StyleClass="FilledButton" Text="{x:Static s:AppResources.BtnSave}" Command="{Binding GuardarRecetaCommand}" />
+            <Button StyleClass="FilledButton" Text="{localize:Translate BtnSave}" Command="{Binding GuardarRecetaCommand}" />
         </StackLayout>
     </ScrollView>
 </ContentPage>

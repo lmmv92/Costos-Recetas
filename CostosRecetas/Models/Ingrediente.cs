@@ -1,4 +1,5 @@
 ﻿using CostosRecetas.Helpers;
+using CostosRecetas.Resources;
 using SQLite;
 
 namespace CostosRecetas.Models
@@ -12,7 +13,7 @@ namespace CostosRecetas.Models
 
         [Unique]
         [Column("nombre")]
-        public string Nombre { get; set; } = default!;
+        public string Nombre { get; set; } = String.Empty;
 
         [Column("precio")]
         public decimal Precio { get; set; } = 0;
@@ -23,12 +24,13 @@ namespace CostosRecetas.Models
         [Column("unidad_medida_id")]
         public int UnidadMedidaId { get; set; }
 
-        //[Ignore]
-        //public string? UnidadMedidaAbrev => $"{UnidadesMedida.GetUnidad(UnidadMedidaId)?.Abreviatura}";
         [Ignore]
         public UnidadMedida? UnidadMedidaNav => UnidadesMedida.GetUnidad(UnidadMedidaId);
 
         [Ignore]
         public string CantidadUnidad => $"{Cantidad} {UnidadMedidaNav?.Abreviatura ?? "-"}";
+
+        [Ignore]
+        public string NombreLocalizado => AppResources.ResourceManager.GetString(Nombre) ?? Nombre;
     }
 }

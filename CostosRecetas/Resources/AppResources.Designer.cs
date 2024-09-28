@@ -178,6 +178,15 @@ namespace CostosRecetas.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Moneda.
+        /// </summary>
+        internal static string Currency {
+            get {
+                return ResourceManager.GetString("Currency", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Eliminar.
         /// </summary>
         internal static string Delete {
@@ -349,7 +358,7 @@ namespace CostosRecetas.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mantener la pantalla encendida en los detalles de una receta.
+        ///   Looks up a localized string similar to Mantener la pantalla encendida en el detalle de una receta.
         /// </summary>
         internal static string KeepScreenOnDetailsPage {
             get {
@@ -363,6 +372,15 @@ namespace CostosRecetas.Resources {
         internal static string L {
             get {
                 return ResourceManager.GetString("L", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Idioma.
+        /// </summary>
+        internal static string Language {
+            get {
+                return ResourceManager.GetString("Language", resourceCulture);
             }
         }
         

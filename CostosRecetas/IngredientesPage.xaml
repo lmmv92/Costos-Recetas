@@ -2,19 +2,20 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CostosRecetas.IngredientesPage"
-             xmlns:s="clr-namespace:CostosRecetas.Resources"
+             xmlns:local="clr-namespace:CostosRecetas.Services"
+             xmlns:localize="clr-namespace:LocalizationResourceManager.Maui;assembly=LocalizationResourceManager.Maui"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
              xmlns:m="clr-namespace:UraniumUI.Icons.MaterialIcons;assembly=UraniumUI.Icons.MaterialIcons"
              xmlns:viewmodel="clr-namespace:CostosRecetas.ViewModels"             
              xmlns:model="clr-namespace:CostosRecetas.Models"
              x:DataType="viewmodel:IngredientesViewModel"
-             Title="{x:Static s:AppResources.Ingredients}">
+             Title="{localize:Translate Ingredients}">
 
     <AbsoluteLayout Margin="20">
         <Grid RowDefinitions="auto,*" RowSpacing="10" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
             <material:InputField Grid.Row="0">
-                <SearchBar Placeholder="{x:Static s:AppResources.SearchPlaceholderIngr}" Text="{Binding TextoBuscar}">
+                <SearchBar Placeholder="{localize:Translate SearchPlaceholderIngr}" Text="{Binding TextoBuscar}">
                     <SearchBar.Behaviors>
                         <toolkit:EventToCommandBehavior EventName="TextChanged" Command="{Binding BuscarIngredientesCommand}" />
                     </SearchBar.Behaviors>
@@ -29,13 +30,13 @@
                         <SwipeView>
                             <SwipeView.RightItems>
                                 <SwipeItems>
-                                    <SwipeItem Text="{x:Static s:AppResources.Delete}" BackgroundColor="Red" Command="{Binding EliminarIngredienteCommand, Source={RelativeSource AncestorType={x:Type viewmodel:IngredientesViewModel}}}" CommandParameter="{Binding .}" />
+                                    <SwipeItem Text="{localize:Translate Delete}" BackgroundColor="Red" Command="{Binding EliminarIngredienteCommand, Source={RelativeSource AncestorType={x:Type viewmodel:IngredientesViewModel}}}" CommandParameter="{Binding .}" />
                                 </SwipeItems>
                             </SwipeView.RightItems>
                             <Border Padding="10" StrokeShape="RoundRectangle 10,10,10,10" Stroke="{AppThemeBinding Light={StaticResource Secondary}, Dark= {StaticResource PrimaryDark}}">
                                 <FlyoutBase.ContextFlyout>
                                     <MenuFlyout>
-                                        <MenuFlyoutItem Text="{x:Static s:AppResources.Delete}" Command="{Binding EliminarIngredienteCommand, Source={RelativeSource AncestorType={x:Type viewmodel:IngredientesViewModel}}}" CommandParameter="{Binding .}" />
+                                        <MenuFlyoutItem Text="{localize:Translate Delete}" Command="{Binding EliminarIngredienteCommand, Source={RelativeSource AncestorType={x:Type viewmodel:IngredientesViewModel}}}" CommandParameter="{Binding .}" />
                                     </MenuFlyout>
                                 </FlyoutBase.ContextFlyout>
                                 <Border.GestureRecognizers>
@@ -43,10 +44,10 @@
                                     </TapGestureRecognizer>
                                 </Border.GestureRecognizers>
                                 <StackLayout>
-                                    <Label Text="{Binding Nombre}" FontAttributes="Bold" />
+                                    <Label Text="{Binding NombreLocalizado}" FontAttributes="Bold" />
                                     <Grid ColumnDefinitions="*,*,*" ColumnSpacing="10">
                                         <Label Grid.Column="0" Text="{Binding CantidadUnidad, StringFormat='{0}'}"/>
-                                        <Label Grid.Column="2" Text="{Binding Precio, StringFormat='{}{0:C}'}" HorizontalOptions="End"/>
+                                        <Label Grid.Column="2" Text="{Binding Precio, Converter={StaticResource CurrencyFormatConverter}}" HorizontalOptions="End"/>
                                     </Grid>
                                 </StackLayout>
                             </Border>

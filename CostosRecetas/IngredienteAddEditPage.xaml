@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CostosRecetas.IngredienteAddEditPage"    
-             xmlns:s="clr-namespace:CostosRecetas.Resources"
+             xmlns:localize="clr-namespace:LocalizationResourceManager.Maui;assembly=LocalizationResourceManager.Maui"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
              xmlns:viewmodel="clr-namespace:CostosRecetas.ViewModels"
              xmlns:model="clr-namespace:CostosRecetas.Models"
@@ -10,13 +11,17 @@
              Title="{Binding Titulo}">
     <ScrollView>
         <StackLayout Padding="20" Spacing="30">
-            <material:TextField Title="{x:Static s:AppResources.IngrName}" Text="{Binding Ingrediente.Nombre}"/>
+            <material:TextField x:Name="TextName" Title="{localize:Translate IngrName}" Text="{Binding Ingrediente.NombreLocalizado}">
+                <material:TextField.Behaviors>
+                    <toolkit:EventToCommandBehavior EventName="TextChanged" Command="{Binding NombreTextChangedCommand}" CommandParameter="{Binding Text, Source={x:Reference Name=TextName}}" />
+                </material:TextField.Behaviors>
+            </material:TextField>
             <Grid ColumnDefinitions="*,*" ColumnSpacing="15">
-                <material:TextField Grid.Column="0" Title="{x:Static s:AppResources.IngrQty}" Text="{Binding Ingrediente.Cantidad}" Keyboard="Numeric" />
-                <material:PickerField Grid.Column="1" Title="{x:Static s:AppResources.IngrUnit}" ItemsSource="{Binding UnidadesMedidaPicker}" ItemDisplayBinding="{Binding Nombre}" SelectedItem="{Binding UnidadSeleccionada}"/>
+                <material:TextField Grid.Column="0" Title="{localize:Translate IngrQty}" Text="{Binding Ingrediente.Cantidad}" Keyboard="Numeric" />
+                <material:PickerField Grid.Column="1" Title="{localize:Translate IngrUnit}" ItemsSource="{Binding UnidadesMedidaPicker}" ItemDisplayBinding="{Binding Nombre}" SelectedItem="{Binding UnidadSeleccionada}"/>
             </Grid>
-            <material:TextField Title="{x:Static s:AppResources.IngrPrice}" Text="{Binding Ingrediente.Precio}" Keyboard="Numeric" />
-            <Button StyleClass="FilledButton" Text="{x:Static s:AppResources.BtnSave}" Command="{Binding GuardarIngredienteCommand}"/>
+            <material:TextField Title="{localize:Translate IngrPrice}" Text="{Binding Ingrediente.Precio}" Keyboard="Numeric" />
+            <Button StyleClass="FilledButton" Text="{localize:Translate BtnSave}" Command="{Binding GuardarIngredienteCommand}"/>
         </StackLayout>
     </ScrollView>
 </ContentPage>

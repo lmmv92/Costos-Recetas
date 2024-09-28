@@ -32,7 +32,7 @@ public partial class RecetaAddEditViewModel : ObservableObject
     [ObservableProperty]
     ObservableCollection<Ingrediente> ingredientesBusqueda = [];
 
-    IngredienteReceta itemToMove;
+    IngredienteReceta itemToMove = default!;
 
     [ObservableProperty]
     string textoBuscar = String.Empty;
@@ -60,9 +60,10 @@ public partial class RecetaAddEditViewModel : ObservableObject
             return;
         }
 
-        Expression<Func<Ingrediente, bool>> expression = x => x.Nombre.ToLower().Contains(TextoBuscar.ToLower());
-        var ingredientes = await _dbService.GetFilteredAsync<Ingrediente>(expression);
-        ingredientes = ingredientes.Where(bus => !IngredientesSeleccionados.Any(sel => sel.IngredienteId == bus.IngredienteId)).ToList();
+        var ingredientes = await _dbService.GetAllAsync<Ingrediente>();
+        bool expression1(Ingrediente x) => x.NombreLocalizado.ToLower().Contains(TextoBuscar.ToLower());
+        bool expression2(Ingrediente bus) => !IngredientesSeleccionados.Any(sel => sel.IngredienteId == bus.IngredienteId);
+        ingredientes = ingredientes.Where(expression1).Where(expression2).ToList();
 
         IngredientesBusqueda = ingredientes.ToObservableCollection();
     }
